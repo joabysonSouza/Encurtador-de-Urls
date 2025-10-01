@@ -1,0 +1,31 @@
+{
+  "name": "encurtador-de-urls",
+  "version": "1.0.0",
+  "description": "Projeto Node.js com Express e TypeScript",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "dev": "node --loader ts-node/esm src/index.ts ",
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "dev:watch": "nodemon src/index.ts"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "typescript"
+  ],
+  "author": "Joabyson",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.6.0",
+    "nodemon": "^3.0.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+}
