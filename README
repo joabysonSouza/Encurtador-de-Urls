@@ -1,0 +1,127 @@
+# 🔗 Encurtador de URLs
+
+Um projeto simples e eficiente de **encurtador de URLs** desenvolvido com **Node.js**, **TypeScript** e **SQLite**.  
+O sistema permite criar links curtos personalizados ou automáticos, e redireciona o usuário para o endereço original.
+
+---
+
+## 🚀 Tecnologias Utilizadas
+
+- **Node.js** — servidor backend
+- **Express.js** — framework HTTP minimalista
+- **TypeScript** — tipagem estática para melhor manutenção
+- **better-sqlite3** — banco de dados leve e rápido em arquivo local
+- **nanoid** — geração de IDs curtos e únicos
+
+---
+
+## 📂 Estrutura do Projeto
+
+EncurtadorDeUrls/
+├── src/
+│ ├── db.ts # Configuração e criação da tabela SQLite
+│ └── index.ts # Servidor principal com rotas
+├── urls.db # Banco de dados SQLite (gerado automaticamente)
+├── package.json
+├── tsconfig.json
+└── README.md
+
+
+Copiar código
+
+---
+
+## ⚙️ Configuração do Ambiente
+
+### 1️⃣ Clonar o repositório
+
+```bash
+git clone https://github.com/seu-usuario/encurtador-de-urls.git
+cd encurtador-de-urls
+2️⃣ Instalar dependências
+bash
+Copiar código
+npm install
+3️⃣ Rodar em modo de desenvolvimento
+bash
+Copiar código
+npm run dev
+ou diretamente com:
+
+bash
+Copiar código
+npx ts-node src/index.ts
+O servidor estará rodando em:
+
+
+Copiar código
+http://localhost:3000
+🧠 Como Funciona
+🔸 Rota para encurtar URLs
+POST /shorten
+
+Exemplo de requisição:
+
+json
+Copiar código
+{
+  "url": "https://www.google.com"
+}
+Resposta:
+
+json
+Copiar código
+{
+  "slug": "a1b2c3d",
+  "shortUrl": "http://localhost:3000/a1b2c3d",
+  "original": "https://www.google.com"
+}
+Você também pode definir um slug personalizado:
+
+json
+Copiar código
+{
+  "url": "https://github.com",
+  "slug": "gh"
+}
+🔸 Rota para redirecionar
+GET /:slug
+
+Exemplo:
+
+bash
+Copiar código
+http://localhost:3000/a1b2c3d
+➡️ Redireciona automaticamente para a URL original.
+
+🧱 Banco de Dados
+A tabela urls é criada automaticamente:
+
+Coluna	Tipo	Descrição
+slug	TEXT	Identificador curto (chave primária)
+original_url	TEXT	URL original
+created_at	TEXT	Data de criação
+
+🧰 Scripts Disponíveis
+Comando	Descrição
+npm run dev	Executa o projeto com ts-node
+npm run build	Compila o TypeScript para JS
+npm start	Executa o projeto compilado
+
+🧩 Melhorias Futuras
+Adicionar interface web para criar e visualizar links
+
+Expiração de links
+
+Contador de cliques
+
+Autenticação para links privados
+
+Deploy na Vercel ou Render
+
+🧑‍💻 Autor
+Joabyson Souza
+💻 Desenvolvedor de Sistemas | Estudante de Análise e Desenvolvimento de Sistemas
+📍 Brasil
+📬 LinkedIn · GitHub
+
